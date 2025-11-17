@@ -669,4 +669,29 @@
                     backgroundColor: '#95a5a6'
                 }, {
                     label: 'F1-Score',
-                    data: Object.keys(methods).map(m => data.metrics[
+                    data: Object.keys(methods).map(m => data.metrics[m].f1 * 100),
+                    backgroundColor: '#bdc3c7'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: true, position: 'top' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
